@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
   connect(ui->Accept_btn, &QPushButton::clicked, this, &MainWindow::Accept_v);
   _BaseTimer_po = new QTimer(this);
   connect(_BaseTimer_po, &QTimer::timeout, this, &MainWindow::TickProcess_v);
-  _BaseTimer_po->start(1000); // 1 second interval
+  _BaseTimer_po->start(1000); // интерввал 1 секунда
 
 }
 
@@ -141,7 +141,7 @@ int MainWindow::queueTimeCustom_i(int countOffices,
 void MainWindow::TickProcess_v()
 {
   if (_startTimer_b && !_simulationFinished_b) {
-    // Decrease time for all busy cashiers
+    // Сокращаем время всех занятых касс
     for (int i = 0; i < _cashiers_vec.size(); i++) {
       if (_cashiers_vec[i] > 0) {
         _cashiers_vec[i]--;
